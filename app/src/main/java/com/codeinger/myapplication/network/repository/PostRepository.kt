@@ -8,8 +8,9 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class PostRepository(private val postRequest: PostRequest) {
+class PostRepository @Inject constructor(private val postRequest: PostRequest) {
 
      fun getPost() = flow<Resource<List<Post>>> {
          emit(Resource.loading())
